@@ -3,16 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>this is totally not a redirect lmfao</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <title>RogeRampager</title>
+    <link rel="stylesheet" href="https://rbxcdn.vercel.app/rbxcdn/CDN/styles/rogerampagerstyle.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js"
+            }
+        }
+    </script>
+    <script type="module" src="https://rbxcdn.vercel.app/rbxcdn/CDN/scripts/rogerampagerscript.js" defer></script>
 </head>
 <body>
-    <h1>please wait :)</h1>
-    <script>
-    setTimeout(() => {
-      window.location.href = "https://rogerampager.on.websim.ai";
-    }, 3000);
-  </script>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <div class="button red"></div>
+                <div class="button yellow"></div>
+                <div class="button green"></div>
+            </div>
+            <div class="terminal-title">RogeRampager_terminal</div>
+        </div>
+        <div class="terminal-body">
+            <div class="ascii-logo">
+                <pre id="logo">
+                </pre>
+            </div>
+            <div class="terminal-content">
+                <div id="output"></div>
+                <div class="command-line">
+                    <span class="prompt">root@rogerampager:~#</span>
+                    <span class="input" id="command-input"></span>
+                    <span class="cursor"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="background-container">
+        <div id="matrix-canvas"></div>
+        <div class="grid-overlay"></div>
+    </div>
+    
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#" class="nav-link" data-command="login">LOGIN</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay"></div>
 </body>
 </html>
