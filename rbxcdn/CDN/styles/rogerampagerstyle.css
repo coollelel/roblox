@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --primary: #0f0;
+    --secondary: #00ff9d;
+    --dark: #111;
+    --darker: #000;
+    --highlight: #ff0044;
+    --terminal-bg: rgba(0, 10, 20, 0.85);
+    --glow-color: rgba(0, 255, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: var(--darker);
+    color: var(--primary);
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#matrix-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(0, 255, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 255, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, var(--darker) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.terminal-container {
+    position: relative;
+    width: 80%;
+    height: 70vh;
+    margin: 5vh auto;
+    background-color: var(--terminal-bg);
+    border-radius: 6px;
+    box-shadow: 0 0 30px var(--glow-color);
+    overflow: hidden;
+    z-index: 2;
+    border: 1px solid var(--secondary);
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(0, 20, 40, 0.7);
+    border-bottom: 1px solid var(--secondary);
+}
+
+.terminal-buttons {
+    display: flex;
+    margin-right: 15px;
+}
+
+.button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
+
+.terminal-title {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-left: 10px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.terminal-body {
+    height: calc(100% - 32px);
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.ascii-logo {
+    margin-bottom: 20px;
+    align-self: center;
+    font-size: 10px;
+    color: var(--secondary);
+    text-shadow: 0 0 5px var(--glow-color);
+}
+
+.terminal-content {
+    flex-grow: 1;
+}
+
+#output {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.command-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: var(--secondary);
+    margin-right: 5px;
+}
+
+.input {
+    color: var(--primary);
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background-color: var(--primary);
+    animation: blink 1s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+.main-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav li {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: var(--secondary);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    border: 1px solid var(--secondary);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px var(--glow-color);
+    letter-spacing: 1px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.2), transparent);
+    transition: all 0.5s;
+}
+
+.nav-link:hover {
+    color: var(--dark);
+    background-color: var(--secondary);
+    box-shadow: 0 0 15px var(--secondary);
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+/* Typing effect animation */
+.typing {
+    animation: typing 0.05s infinite;
+}
+
+@keyframes typing {
+    from { border-right-color: transparent; }
+    to { border-right-color: var(--primary); }
+}
+
+@media (max-width: 768px) {
+    .terminal-container {
+        width: 95%;
+        height: 80vh;
+    }
+    
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .main-nav li {
+        margin: 5px;
+    }
+}
+
