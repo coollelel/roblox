@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RUMP AI</title>
+  <link rel="stylesheet" href="https://rbxcdn.vercel.app/rbxcdn/CDN/styles/rumpstyle.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "marked": "https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+    }
+  }
+  </script>
+  <script src="https://rbxcdn.vercel.app/rbxcdn/CDN/scripts/rumpscript.js" type="module"></script>
+</head>
+<body class="dark-mode">
+  <div class="chat-container">
+    <div class="header">
+      <img src="https://rbxcdn.vercel.app/rbxcdn/CDN/media/RUMP.png" alt="RUMP" class="rump-icon">
+      <h1>RUMP</h1>
+      <p>your friendly ai assistant</p>
+    </div>
+    
+    <div class="chat-messages" id="chatMessages"></div>
+    
+    <div class="input-container">
+      <textarea id="userInput" placeholder="ask me anything! math, homework help, or just chat..."></textarea>
+      <button id="sendBtn">send</button>
+    </div>
+  </div>
+</body>
+</html>
