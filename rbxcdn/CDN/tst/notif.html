@@ -25,9 +25,13 @@
         });
         notification.onclick = () => {
           window.focus();
+          alert("worked!");
+          window.open("https://rbxcdn.vercel.app/rbxcdn/CDN/media/success.html", "popupWindow", "width=1000,height=800");
         };
       } else {
+        window.focus();
         alert("notif perms required to make this test work!!");
+        window.open("https://rbxcdn.vercel.app/rbxcdn/CDN/media/unsuccessful.html", "popupWindow", "width=1000,height=800");
       }
     }
     sendNotification()
