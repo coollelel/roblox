@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>notif testing</title>
+  </head>
+  <body>
+    <h1>An notification request or notification will pop up soon...</h1>
+    <script>
+          document.addEventListener('DOMContentLoaded', () => {
+      if (Notification.permission !== "granted") {
+        Notification.requestPermission().then(permission => {
+          if (permission === "granted") {
+            console.log("Notification permission granted.");
+          } else {
+            console.warn("Notification permission denied.");
+          }
+        });
+      }
+    });
+    function sendNotification() {
+      if (Notification.permission === "granted") {
+        const notification = new Notification("test worked", {
+          body: "the notification test worked!",
+          icon: "https://rbxcdn.vercel.app/rbxcdn/CDN/media/testfavi.png"
+        });
+        notification.onclick = () => {
+          window.focus();
+        };
+      } else {
+        alert("Notifications are not enabled.");
+      }
+    }
+    sendNotification()
+    </script>
+  </body>
+</html>
